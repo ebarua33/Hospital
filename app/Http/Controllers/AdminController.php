@@ -37,15 +37,30 @@ class AdminController extends Controller
     }
 
     public function generalac(){
-        $data = Room::where('cetagory', 'General')->where('capacity', 'AC')->get();
+        $data = Room::where('capacity', 'ac')->where('category', 'general')->get();
         return view('admin.generalac', compact('data'));
     }
 
-    // public function generalnonac()
-    // {
-    //     $data = Room::where('capacity', 'Non AC')->where('category', 'General')->get();
-    //     return view('admin.generalac', compact('data'));
-    // }
+    public function generalnonac()
+    {
+        $data1 = Room::where('capacity', 'nonac')->where('category', 'general')->get();
+        return view('admin.generalnonac', compact('data1'));
+    }
+    public function privateac()
+    {
+        $data2 = Room::where('capacity', 'ac')->where('category', 'private')->get();
+        return view('admin.privateac', compact('data2'));
+    }
+    public function privatenonac()
+    {
+        $data3 = Room::where('capacity', 'nonac')->where('category', 'private')->get();
+        return view('admin.privatenonac', compact('data3'));
+    }
+    public function vip()
+    {
+        $data4 = Room::where('category', 'vip')->get();
+        return view('admin.vip', compact('data4'));
+    }
 
 
 }

@@ -29,31 +29,31 @@
                 <th scope="row">1</th>
                 <td>General</td>
                 <td>Ac</td>
-                <td><a class="btn btn-success" href="{{ url('show') }}">see more</a></td>
+                <td><a class="btn btn-success" href="{{ url('generalac') }}">see more</a></td>
             </tr>
             <tr>
                 <th scope="row">1</th>
                 <td>General</td>
                 <td>Non Ac</td>
-                <td><a class="btn btn-success" href="{{ url('show') }}">see more</a></td>
+                <td><a class="btn btn-success" href="{{ url('generalnonac') }}">see more</a></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Private</td>
                 <td>Ac</td>
-                <td></td>
+                <td><a class="btn btn-success" href="{{ url('privateac') }}">see more</a></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Private</td>
                 <td>Non Ac</td>
-                <td></td>
+                <td><a class="btn btn-success" href="{{ url('privatenonac') }}">see more</a></td>
             </tr>
             <tr>
                 <th scope="row">1</th>
                 <td>VIP</td>
                 <td>Ac</td>
-                <td></td>
+                <td><a class="btn btn-success" href="{{ url('vip') }}">see more</a></td>
             </tr>
         </tbody>
     </table>

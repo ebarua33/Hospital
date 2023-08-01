@@ -28,8 +28,11 @@ Route::post('/appointment', [HomeController::class, 'appointment']);
 Route::get('/myappointment', [HomeController::class, 'myappointment']);
 Route::get('/cancel_appoint/{id}', [HomeController::class, 'cancelAppoint']);
 Route::get('/room', [AdminController::class, 'roomReserve']);
-Route::get('/show', [AdminController::class, 'generalac']);
-Route::get('/show', [AdminController::class, 'generalnonac']);
+Route::get('/generalac', [AdminController::class, 'generalac']);
+Route::get('/generalnonac', [AdminController::class, 'generalnonac']);
+Route::get('/privateac', [AdminController::class, 'privateac']);
+Route::get('/privatenonac', [AdminController::class, 'privatenonac']);
+Route::get('/vip', [AdminController::class, 'vip']);
 
 
 Route::middleware([
