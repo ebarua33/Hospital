@@ -34,7 +34,7 @@
                     <td>{{ $datas->bgroup }}</td>
                     <td>{{ $datas->email }}</td>
                     <td>{{ $datas->phone }}</td>
-                    <td>{{ $datas->room }}</td>
+                    <td>{{ $datas->room_number }}</td>
                     <td>{{ $datas->date }}</td>
                 </tr>
                 <tr>

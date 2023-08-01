@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
     <!-- Required meta tags -->
     @include('admin.css')
   </head>
@@ -36,7 +37,7 @@
                     <td><img src="doctorimage/{{ $datas->image }}" alt="" height="200px" width="200px"></td>
                 </tr>
                 <tr>
-                    <td><a class="btn btn-success" href="{{ url('update_doctor', $datas->id) }}">Update</a></td>
+                    <td><a class="btn btn-success" href="{{ url('updatedoctor', $datas->id)}}">Update</a></td>
                     <td><a class="btn btn-danger" onclick="return confirm('Are you sure to delete this')" href="{{ url('delete_doctor', $datas->id) }}">Delete</a></td>
                 </tr>
             @endforeach

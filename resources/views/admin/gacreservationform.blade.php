@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
     <!-- Required meta tags -->
     @include('admin.css')
   </head>
@@ -24,7 +25,7 @@
 
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" name="age" id="age" aria-describedby="ageHelp" required>
+                        <input type="text" class="form-control" name="age" id="age" aria-describedby="ageHelp" required>
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
                     </div>
                     <div class="mb-3">
@@ -39,13 +40,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="number" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required>
+                        <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required>
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
                     </div>
 
                     <div class="mb-3">
                         <label for="room" class="form-label">Room Number</label>
-                        <input type="text" class="form-control" name="room" id="room" aria-describedby="roomHelp" required>
+                        <input type="text" class="form-control" name="room" id="room" aria-describedby="roomHelp" value="{{ $data->room_number }}" required>
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
                     </div>
                     <div class="mb-3">

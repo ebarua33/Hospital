@@ -94,8 +94,9 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function reserve(){
-        return view('admin.gacreservationform');
+    public function reserve($id){
+        $data = Room::find($id);
+        return view('admin.gacreservationform', compact('data'));
     }
 
     public function uploadreservation(Request $request)
@@ -106,7 +107,11 @@ class AdminController extends Controller
         $data->bgroup = $request->bgroup;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->room_number = $request->room;
+        $roomnumber = $request->room;
+        $data1 = Room::where('room_number', $roomnumber)->first();
+        $data1->decrement('availability');
+        $data1->save();
+        $data->room_number = $roomnumber;
         $data->date = $request->date;
         $data->save();
 
@@ -117,6 +122,35 @@ class AdminController extends Controller
         $patientdata = Reservedroom::all();
         return view('admin.patientlist', compact('patientdata'));
     }
+
+
+    public function updatedoctor($id){
+        $updatedata = Doctor::find($id);
+        return view('admin.updatedoctor',compact('updatedata'));
+    }
+
+    public function newupdatedoctor(Request $request, $id)
+    {
+        $data = Doctor::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->speciality = $request->speciality;
+        $data->room = $request->room;
+        $image = $request->file;
+        if($image){
+            $imageName = time() . '.' . $image->getClientoriginalExtension();
+            $request->file->move('doctorimage', $imageName);
+            $data->image = $imageName;
+        }
+
+        $data->save();
+
+        $doctor = Doctor::all();
+
+        return view('admin.showdoctor', compact('doctor'));
+    }
+
 
 
 

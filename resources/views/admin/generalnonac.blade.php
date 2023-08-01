@@ -31,7 +31,7 @@
                     <td>{{ $datas->room_number }}</td>
                     <td>{{ $datas->category }}</td>
                     <td>{{ $datas->availability }}</td>
-                    <td><a class="btn btn-primary" href="{{ url("reserve") }}">Book Now</a></td>
+                    <td><a class="btn btn-primary" href="{{ url("reserve", $datas->id) }}">Book Now</a></td>
                 </tr>
             @endforeach
         </tbody>
