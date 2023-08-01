@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Reservedroom;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -61,6 +63,62 @@ class AdminController extends Controller
         $data4 = Room::where('category', 'vip')->get();
         return view('admin.vip', compact('data4'));
     }
+    public function showappointment(){
+        $appointmentdata = Appointment::all();
+        return view('admin.showappointment', compact('appointmentdata'));
+    }
+
+    public function approved($id){
+        $approved = Appointment::find($id);
+        $approved->status = 'Approved';
+        $approved->save();
+        return redirect()->back();
+    }
+
+    public function canceled($id)
+    {
+        $canceled = Appointment::find($id);
+        $canceled->status = 'Canceled';
+        $canceled->save();
+        return redirect()->back();
+    }
+
+    public function showdoctor(){
+        $doctor = Doctor::all();
+        return view('admin.showdoctor', compact('doctor'));
+    }
+
+    public function deletedoctor($id){
+        $data = Doctor::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
+    public function reserve(){
+        return view('admin.gacreservationform');
+    }
+
+    public function uploadreservation(Request $request)
+    {
+        $data = new Reservedroom();
+        $data->patient_name = $request->name;
+        $data->age = $request->age;
+        $data->bgroup = $request->bgroup;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->room_number = $request->room;
+        $data->date = $request->date;
+        $data->save();
+
+        return redirect()->back()->with('message', 'Room Reserved Successfully');
+    }
+
+    public function patientlist(){
+        $patientdata = Reservedroom::all();
+        return view('admin.patientlist', compact('patientdata'));
+    }
+
+
 
 
 }

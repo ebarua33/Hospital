@@ -18,7 +18,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Room Number</th>
                 <th scope="col">Room Category</th>
                 <th scope="col">Availability</th>
@@ -27,7 +26,6 @@
         <tbody>
             @foreach ($data as $datas)
                 <tr>
-                    <th scope="row">1</th>
                     <td>{{ $datas->room_number }}</td>
                     <td>{{ $datas->category }}</td>
                     <td>{{ $datas->availability }}</td>

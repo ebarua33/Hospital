@@ -33,6 +33,15 @@ Route::get('/generalnonac', [AdminController::class, 'generalnonac']);
 Route::get('/privateac', [AdminController::class, 'privateac']);
 Route::get('/privatenonac', [AdminController::class, 'privatenonac']);
 Route::get('/vip', [AdminController::class, 'vip']);
+Route::get('/showappointment', [AdminController::class, 'showappointment']);
+Route::get('/approved/{id}', [AdminController::class, 'approved']);
+Route::get('/canceled/{id}', [AdminController::class, 'canceled']);
+Route::get('/showdoctor', [AdminController::class, 'showdoctor']);
+Route::get('/update_doctor/{id}', [AdminController::class, 'updatedoctor']);
+Route::get('/delete_doctor/{id}', [AdminController::class, 'deletedoctor']);
+Route::get('/reserve', [AdminController::class, 'reserve']);
+Route::get('/patientlist', [AdminController::class, 'patientlist']);
+Route::post('/upload_reservation', [AdminController::class, 'uploadreservation']);
 
 
 Route::middleware([
